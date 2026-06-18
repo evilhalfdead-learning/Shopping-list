@@ -1,0 +1,184 @@
+.app-container {
+  max-width: 560px;
+  margin: 48px auto;
+  padding: 28px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-size: clamp(2rem, 2.5vw, 2.6rem);
+  text-align: center;
+  color: #111827;
+}
+
+.add-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.add-form input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  font-size: 1rem;
+  color: #111827;
+  background: #f8fafc;
+}
+
+.quantity-input {
+  width: 90px;
+}
+
+.add-form input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.add-form button {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-form button:hover {
+  background: #1d4ed8;
+}
+
+.shopping-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.shopping-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+}
+
+.shopping-list li label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  color: #111827;
+  font-size: 1rem;
+}
+
+.item-quantity {
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: #e0f2fe;
+  color: #0c4a6e;
+  font-size: 0.9rem;
+}
+
+.list-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.clear-button {
+  border: none;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: #f97316;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.clear-button:hover {
+  background: #ea580c;
+}
+
+.edit-form {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.edit-form input {
+  flex: 1;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-form button,
+.cancel-button {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 14px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background: #9ca3af;
+}
+
+.edit-form button:hover,
+.cancel-button:hover {
+  filter: brightness(0.95);
+}
+
+.shopping-list li.bought span {
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+.shopping-list input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: #2563eb;
+}
+
+.remove-button {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: #ef4444;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.remove-button:hover {
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.empty-state {
+  margin: 0;
+  color: #475569;
+  text-align: center;
+  font-size: 1rem;
+}
+
