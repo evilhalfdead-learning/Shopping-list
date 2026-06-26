@@ -9,6 +9,14 @@ import {
   clearAllItems,
 } from './firebaseService'
 
+const createItemId = () => {
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+    return crypto.randomUUID()
+  }
+
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`
+}
+
 function App() {
   const [itemText, setItemText] = useState('')
   const [itemQuantity, setItemQuantity] = useState(1)
@@ -61,7 +69,7 @@ function App() {
     if (!text || quantity < 1) return
 
     const newItem = {
-      id: `${Date.now()}-${Math.random()}`,
+      id: createItemId(),
       text,
       quantity,
       bought: false,

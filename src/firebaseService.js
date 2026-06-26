@@ -19,7 +19,9 @@ const getValidPath = (path) => {
   // Clean up path: remove double slashes and ensure no leading slash
   return path.replace(/\/+/g, '/').replace(/^\//, '')
 }
-
+const sanitizePathSegment = (value) => {
+  return String(value).replace(/[.$\[\]#\/]/g, '_')
+}
 // Listen to items in real-time
 export const listenToItems = (callback) => {
   try {
@@ -82,7 +84,7 @@ export const addItem = async (item) => {
     if (!auth.currentUser?.uid) {
       throw new Error('User must be authenticated to add items')
     }
-    const itemPath = getValidPath(`${getItemsPath()}/${item.id}`)
+    const itemPath = getValidPath(`${getItemsPath()}/${sanitizePathSegment(item.id)}`)
     const itemRef = ref(database, itemPath)
     await set(itemRef, item)
   } catch (error) {
@@ -97,7 +99,7 @@ export const updateItem = async (itemId, updates) => {
     if (!auth.currentUser?.uid) {
       throw new Error('User must be authenticated to update items')
     }
-    const itemPath = getValidPath(`${getItemsPath()}/${itemId}`)
+    const itemPath = getValidPath(`${getItemsPath()}/${sanitizePathSegment(itemId)}`)
     const itemRef = ref(database, itemPath)
     await update(itemRef, updates)
   } catch (error) {
@@ -112,7 +114,7 @@ export const removeItem = async (itemId) => {
     if (!auth.currentUser?.uid) {
       throw new Error('User must be authenticated to remove items')
     }
-    const itemPath = getValidPath(`${getItemsPath()}/${itemId}`)
+    const itemPath = getValidPath(`${getItemsPath()}/${sanitizePathSegment(itemId)}`)
     const itemRef = ref(database, itemPath)
     await remove(itemRef)
   } catch (error) {
